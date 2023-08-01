@@ -23,10 +23,13 @@ const app = express();
 //     uri: "mongodb+srv://vaghaniheet123:heet737@cluster0.9rdxqou.mongodb.net/plantweb",
 //     collection: "sessions"
 // });
-app.use(cors({
-    origin: 'https://64c87ed8457d0a327ec0b683--stellular-naiad-bd243e.netlify.app/',
-    credentials: true,
-  }));
+const corsOptions = {
+  origin: 'https://64c87ed8457d0a327ec0b683--stellular-naiad-bd243e.netlify.app',
+  credentials: true,
+};
+
+app.options('*', cors(corsOptions)); // Enable preflight requests for all routes
+app.use(cors(corsOptions)); // Apply CORS to all routes
 app.use(express.json())
 app.use(cookieParser('secret'));
 
