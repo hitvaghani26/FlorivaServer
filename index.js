@@ -33,6 +33,7 @@ app.use(cookieParser('secret'));
 
 
 app.use(session({
+    proxy: true,
     secret: sessionKey,
     resave: false,
     saveUninitialized: false,
