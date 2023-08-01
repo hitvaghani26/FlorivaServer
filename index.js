@@ -22,6 +22,11 @@ const corsOptions = {
   credentials: true,
 };
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 app.options('*', cors(corsOptions)); // Enable preflight requests for all routes
 app.use(cors(corsOptions)); // Apply CORS to all routes
 app.use(express.json());
