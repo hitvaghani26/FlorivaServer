@@ -24,7 +24,7 @@ const app = express();
 //     collection: "sessions"
 // });
 app.use(cors({
-    origin: 'https://64c87ed8457d0a327ec0b683--stellular-naiad-bd243e.netlify.app/',
+    origin: true,
     credentials: true,
   }));
 app.use(express.json())
